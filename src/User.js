@@ -4,12 +4,12 @@ class User extends Component{
     constructor(){
         super();
         this.state={
-            data: "anil"
+            data: 0
         }
     }
     apple(){
         this.setState({
-            data:"paresh"
+            data:this.state.data+1
         })
     }
     render(){
