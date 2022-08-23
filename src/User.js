@@ -1,24 +1,30 @@
 
 import React, { useState } from 'react'
 
-function User(props){
-    const [data, setData] = useState(null)
-    const [print, setPrint] = useState(false)
-    const defineDate=(val)=>{
-        setData(val.target.value)
-        setPrint(false)
-    }
+function User(){
+    const [showData, setShowData] = useState(true)
 
         return(
             <>
-                <h1>Props with Functional Component</h1>
-                <h3>{props.title}</h3>
+                <h3>Hide and Show Element</h3>
+                <div style={{height: '50px'}}>
+
                 {
-                    print?<h2>{data}</h2>:null
+                    showData?<h1 >You are in safe zone</h1>:null
                 }
-                {/* <h4>{data}</h4> */}
-                <input type="text" onChange={defineDate} />
-                <button onClick={()=>setPrint(true)}>Change Name</button>
+                </div>
+                <button onClick={()=>setShowData(true)} >Click to Show</button>
+                <button onClick={()=>setShowData(false)}>Click to Hide</button>
+
+                <hr />
+                <h3>Using one button called toggle</h3>
+                <div style={{height: '50px'}}>
+
+                {
+                    showData?<h1 >You are in safe zone</h1>:null
+                }
+                </div>
+                <button onClick={()=>setShowData(!showData)}>toggle</button>
             </>
         );
     }
