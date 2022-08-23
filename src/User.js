@@ -1,25 +1,25 @@
-import React, { Component } from 'react'
 
-class User extends Component{
-    constructor(){
-        super();
-        this.state={
-            data: 0
-        }
+import React, { useState } from 'react'
+
+function User(props){
+    const [data, setData] = useState(null)
+    const [print, setPrint] = useState(false)
+    const defineDate=(val)=>{
+        setData(val.target.value)
+        setPrint(false)
     }
-    apple(){
-        this.setState({
-            data:this.state.data+1
-        })
-    }
-    render(){
+
         return(
             <>
-                <h1>Example for class based Component</h1>
-                <h3>{this.state.data}</h3>
-                <button onClick={()=>this.apple()}>Change Name</button>
+                <h1>Props with Functional Component</h1>
+                <h3>{props.title}</h3>
+                {
+                    print?<h2>{data}</h2>:null
+                }
+                {/* <h4>{data}</h4> */}
+                <input type="text" onChange={defineDate} />
+                <button onClick={()=>setPrint(true)}>Change Name</button>
             </>
         );
     }
-}
 export default User;
