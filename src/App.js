@@ -1,12 +1,14 @@
 
 import './App.css';
-import User from './User';
+import Student from './Student';
+// import User from './User';
 
 
 function App() {
   return (
     <div className="App">
-      <User />
+      
+      <Student/>
     </div>
   );
 }
