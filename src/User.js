@@ -1,28 +1,29 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 function User (){
-    const [data, setData] = useState("....")
-    const updateData=()=>{
-        setData("Custom 2 Hooks")
-    }
+    const [data, setData] = useState("hey you are going to change in 3 seconds")
+    const [count, setCount] = useState(0)
+    // Link for get more details of useEffects
+    // https://linguinecode.com/post/getting-started-with-react-useeffect
+    useEffect(() => {
+    console.log("useEffect is also work as componentDidMount")
+      setTimeout(() => {
+        setData("I'm fine, thanks for asking.");
+      }, 5000)
+
+    }, []);
 
             return(
                 <>
-                    <h3>Hooks in ReactJS</h3>
+                    <h3>useEffect Example sets are</h3>
                     <h4>With Hooks, we can use class component features in function component like state, props, and life-cycle-method.</h4>
-                    <h3>some hooks are given below</h3>
-                    <p>useState</p>
-                    <p>useEffect</p>
-                    <p>useContext</p>
-                    <p>useMemo</p>
-                    <p>useRef</p>
-                    <p>useReducer</p>
-                    <p>{data}</p>
-                    <button onClick={()=>setData("Custom Hooks")}>Next</button>
-                    <button onClick={updateData}>Next</button>
+                    <p>"{data}"</p>
                     {/* <p>Custom Hooks</p> */}
+                    <hr style={{fontWeight:"bold"}}/>
+                    <p>{count}</p>
+                    <button onClick={()=>setCount(count+1)}>Increase the value</button>
                     
                 </>
             );
