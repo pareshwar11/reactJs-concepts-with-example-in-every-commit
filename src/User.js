@@ -1,19 +1,13 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import UserN from './UserN';
 
 
 function User (){
     const [data, setData] = useState("hey you are going to change in 3 seconds")
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(10)
     // Link for get more details of useEffects
     // https://linguinecode.com/post/getting-started-with-react-useeffect
-    useEffect(() => {
-    console.log("useEffect is also work as componentDidMount")
-      setTimeout(() => {
-        setData("I'm fine, thanks for asking.");
-      }, 5000)
-
-    }, []);
 
             return(
                 <>
@@ -22,8 +16,9 @@ function User (){
                     <p>"{data}"</p>
                     {/* <p>Custom Hooks</p> */}
                     <hr style={{fontWeight:"bold"}}/>
-                    <p>{count}</p>
-                    <button onClick={()=>setCount(count+1)}>Increase the value</button>
+                    <UserN count={count} data={data}/>
+                    <button onClick={()=>setData("all are set")}>Update Data </button>
+                    <button onClick={()=>setCount(count+1)}>Update Count</button>
                     
                 </>
             );
