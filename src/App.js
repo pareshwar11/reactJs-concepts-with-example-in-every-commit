@@ -1,18 +1,60 @@
 
 import './App.css';
 import React from 'react'
-import Button from 'react-bootstrap/Button';
 function App() {
+  /*
+  Why for loop is not using in place of map function
+  ANS: bcz for loop is not working inside the return satement
+  */
+ 
+ // student.map((item)=>{
+   //   return console.log(item)
+   // });
+    
+    const student=['anil', 'sidhu', 'peter', 'sam']
+    // Now suppose we want email, contact, address along with the name so what we do
+    // We make array as an object
+
+    const user=[
+      {name:"anil", email:"anil@gmai.com", contact:192945969},
+      {name:"sidhu", email:"sidhu@gmai.com", contact:192945969},
+      {name:"peter", email:"peter@gmai.com", contact:192945456},
+      {name:"peter", email:"peter@gmai.com", contact:192945678},
+      {name:"peter", email:"peter@gmai.com", contact:192945969},
+    ]
+
   return (
     <div className="App">
-      <h1 className='text-center'>We are going to learn about How we can install bootstrap and how we can use that</h1>
-      <h3 className='my-5'>1. run this code in terminal :- <b>npm i bootstrap react-bootstrap</b> ( here 2 pakages are, react-bootstrap is different and bootstrap is different library )</h3>
-      <h3>2. copy the module.css file from https://react-bootstrap.github.io/ </h3>
-      <h3>3. Paste it in the index.js file</h3>
-      <h3>4. For using the react-bootstrap  read the official document</h3>
-      <span>You can also use the bootstrap by copy CDN link paste inside the index.html file </span>
-      <Button variant="primary">Primary</Button>{' '}
-      <Button variant="secondary">Secondary</Button>{' '}
+      <h1 className='text-center'>Handle Array with list using map function</h1>
+      {/* {
+        student.map((item)=>{
+          return <h3>{item}</h3>
+        })
+      } */}
+      <table className="table table-hover table-bordered">
+        <thead>
+
+        <tr>
+          <td>
+            Name
+          </td>
+          <td>Email</td>
+          <td>Contact</td>
+        </tr>
+        </thead>
+        <tbody>
+      {
+        user.map((i)=>
+        i.contact===192945969?
+        <tr key={i.name}>
+          <td>{i.name}</td>
+          <td>{i.email}</td>
+          <td>{i.contact}</td>
+        </tr>:null
+        ) 
+      }
+      </tbody>
+      </table>
     </div>
   );
 }
