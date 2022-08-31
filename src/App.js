@@ -11,16 +11,16 @@ function App() {
    //   return console.log(item)
    // });
     
-    const student=['anil', 'sidhu', 'peter', 'sam']
+    // const student=['anil', 'sidhu', 'peter', 'sam']
     // Now suppose we want email, contact, address along with the name so what we do
     // We make array as an object
 
     const user=[
       {name:"anil", email:"anil@gmai.com", contact:192945969},
       {name:"sidhu", email:"sidhu@gmai.com", contact:192945969},
-      {name:"peter", email:"peter@gmai.com", contact:192945456},
+      {name:"sam", email:"peter@gmai.com", contact:192945456},
       {name:"peter", email:"peter@gmai.com", contact:192945678},
-      {name:"peter", email:"peter@gmai.com", contact:192945969},
+      {name:"bruce", email:"peter@gmai.com", contact:192945969},
     ]
 
   return (
@@ -35,6 +35,7 @@ function App() {
         <thead>
 
         <tr>
+          <td>S.No</td>
           <td>
             Name
           </td>
@@ -44,13 +45,15 @@ function App() {
         </thead>
         <tbody>
       {
-        user.map((i)=>
-        i.contact===192945969?
-        <tr key={i.name}>
+        user.map((i,n)=>
+        // i.contact===192945969?
+        <tr key={n}>
+          <td>{n+1}</td>
           <td>{i.name}</td>
           <td>{i.email}</td>
           <td>{i.contact}</td>
-        </tr>:null
+        </tr>
+        // :null
         ) 
       }
       </tbody>
